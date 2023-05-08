@@ -1,0 +1,38 @@
+﻿@using System.Collections;
+@using Prueba2023.Models
+@model IEnumerable<Persona>
+
+<h1>Personas</h1>
+<p>
+    <a asp-action="Crear">Crear nueva persona</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Identificacion</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Tipo Identificacion</th>
+            <th>Correo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var persona in Model)
+        {
+            <tr>
+                <td>@persona.Identificacion</td>
+                <td>@persona.Nombres</td>
+                <td>@persona.Apellidos</td>
+                <td>@persona.TipoIdentificacion</td>
+                <td>@persona.Correo</td>
+                <td>
+                    <a asp-action="Detalle" asp-route-id="@persona.Id">Detalle</a>
+                    <a asp-action="Editar" asp-route-id="@persona.Id">Editar</a>
+                    <a asp-action="Eliminar" asp-route-id="@persona.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

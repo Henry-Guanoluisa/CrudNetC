@@ -1,0 +1,29 @@
+﻿
+@using Prueba2023.Models
+@model Persona
+
+<h1>Eliminar persona</h1>
+<h3>¿Estás seguro que deseas eliminar la siguiente persona?</h3>
+<dl class="row">
+    <dt class="col-sm-2">Identificación</dt>
+    <dt class="col-sm-10">@Model.Identificacion</dt>
+
+    <dt class="col-sm-2">Nombres</dt>
+    <dt class="col-sm-10">@Model.Nombres</dt>
+
+    <dt class="col-sm-2">Apellidos</dt>
+    <dt class="col-sm-10">@Model.Apellidos</dt>
+
+    <dt class="col-sm-2">Tipo de identificación</dt>
+    <dt class="col-sm-10">@Model.TipoIdentificacion</dt>
+
+    <dt class="col-sm-2">Correo electrónico</dt>
+    <dt class="col-sm-10">@Model.Correo</dt>
+</dl>
+<form asp-action="EliminarConfirmado" method="post">
+    <input asp-for="Id" type="hidden" />
+    <div class="form-group">
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
